@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "./Data/LeadTable";
+import Home from "./Partnerscreen/partnerScreen";
 
 function App() {
   return (
