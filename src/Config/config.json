@@ -1,0 +1,8 @@
+{
+    "showSearchBox" : true,
+    "showLeadTable" : true,
+    "showPagination" : true,
+    "showPartnerTable" : true,
+    "shareButton" : true,
+    "showResetButton": true
+}

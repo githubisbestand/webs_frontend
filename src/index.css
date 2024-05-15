@@ -1,0 +1,84 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.main{
+    background-color: rgb(219, 219, 248);
+    width: 100vw;
+    font-family: Poppins;
+}
+
+.mainTwo{
+    width: 700px;
+    margin: auto;
+    text-align: center;
+}
+.page{
+    font-size: 100px;
+    margin-bottom: 20px;
+}
+.first{
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.not{
+    margin-left: 15px;
+}
+.mind{
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+.tind{
+    margin-bottom: 40px;
+}
+.back{
+    margin-bottom: 40px;
+}
+.trip{
+    width: 100px;
+    padding: 5px;
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Adjust z-index to make the modal appear above other elements */
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    min-width: 300px;
+    max-width: 500px;
+    z-index: 1001; /* Ensure modal content appears above overlay */
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.pupup{
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+}
+.olo{
+    width: 400px;
+    text-align: center;
+}
