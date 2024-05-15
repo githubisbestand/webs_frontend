@@ -2,6 +2,7 @@ import React from "react";
 import { FacebookShareButton, LinkedinShareButton, WhatsappShareButton, FacebookIcon, WhatsappIcon, LinkedinIcon, EmailShareButton, EmailIcon } from "react-share";
 
 function Share({ lead }) {
+    
     const getShareMessage = () => {
         return `Check out this lead:\nLead ID: ${lead.id}\nLead Details:\nLead Name: ${lead.Detais.name}\nLead num: ${lead.Detais.num}\nSub-Source: ${lead.source}\nStatus: ${lead.status}\nCampaign: ${lead.cmapaign}\nType: ${lead.type}\nCreated At: ${lead.credit}\nUpdated At: ${lead.update}\nAdded By: ${lead.add}`;
     };

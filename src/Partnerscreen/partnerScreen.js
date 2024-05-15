@@ -115,7 +115,7 @@ function Home() {
                             <td>{d.update}</td>
                             <td>{d.add}</td>
                             <td>
-                                <button onClick={() => handleShareClick(d)}>
+                                <button style={{border:"0px", backgroundColor:"white"}} onClick={() => handleShareClick(d)}>
                                     <i className="fa-solid fa-share"></i>
                                 </button>
                             </td>

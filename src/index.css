@@ -2,43 +2,28 @@
     margin: 0px;
     padding: 0px;
 }
-.main{
-    background-color: rgb(219, 219, 248);
-    width: 100vw;
-    font-family: Poppins;
-}
-
-.mainTwo{
-    width: 700px;
-    margin: auto;
-    text-align: center;
-}
-.page{
-    font-size: 100px;
-    margin-bottom: 20px;
+.firstChild{
+    width: 80%;
+    margin:  auto;
+    text-align: start;
+    margin-top: 20px;
+    background-color: rgb(230, 162, 162);
 }
 .first{
+    border: 1px solid gray;
+    margin-bottom: 30px;
+    padding: 10px;
+    color: red;
+    font-size: 22px;
+}
+.second, .Third{
+    border: 1px solid gray;
+    padding: 10px;
     font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: 30px;
 }
-.not{
-    margin-left: 15px;
-}
-.mind{
-    margin-bottom: 40px;
-    font-size: 20px;
-}
-.tind{
-    margin-bottom: 40px;
-}
-.back{
-    margin-bottom: 40px;
-}
-.trip{
-    width: 100px;
-    padding: 5px;
+.third{
+    text-align: center;
 }
 .modal-overlay {
     position: fixed;
@@ -80,5 +65,5 @@
 }
 .olo{
     width: 400px;
-    text-align: center;
+    text-align: center  ;
 }
