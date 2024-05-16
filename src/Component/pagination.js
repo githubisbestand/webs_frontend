@@ -13,7 +13,7 @@ function Pagination({ currentPage, lastIndex, firstIndex, prePage, changeCpage, 
                     </li>
                 ))}
                 <li className="page-item">
-                    <a href="#" className="page-link" onClick={NextPage}>next</a>
+                    <a href="#" className="page-link outline-none" onClick={NextPage}>next</a>
                 </li>
             </ul>
         </div>
