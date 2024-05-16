@@ -6,7 +6,7 @@ function Modal({ children, isOpen, onClose }) {
 
     return (
         <div className="modal-overlay">
-            <div className="modal-content">
+            <div className="modal-content" style={{background:'white'}}>
                 <button className="modal-close" onClick={onClose}>X</button>
                 {children}
             </div>

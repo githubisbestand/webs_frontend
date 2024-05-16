@@ -78,6 +78,7 @@ function Home() {
 
     return (
         <>
+        <div className="container">
         {config.showSearchBox &&(
             <Form searchText={searchText} handleSearchChange={handleSearchChange} handleSearch={handleSearch} handleReset = {handleReset}  />  
         )}
@@ -134,6 +135,7 @@ function Home() {
             <Modal isOpen={isModalOpen} onClose={closeModal}>
                 {shareLead && <Share lead={shareLead} />}
             </Modal>
+        </div>
         </>
     );
 }

@@ -1,7 +1,9 @@
 table {
+  width: 100%;
     border-collapse: collapse;
-    width: 90vw;
-    margin: auto;
+    /* width: 90vw; */
+    /* margin: auto; */
+    margin-top: 20px;
   }
   
   th, td {
@@ -29,15 +31,4 @@ table {
 .btn1{
   background-color: white;
   border: none;
-}
-form{
-  width: 280px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-}
-.fa-whatsapp{
-  font-size: 17px;
-  color: green;
 }
