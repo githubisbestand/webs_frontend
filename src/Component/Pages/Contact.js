@@ -18,10 +18,10 @@ function Conatact()
                             <li className="border border-gray w-50 m-2 text-center p-2">Home Loan</li>
                             <li className="border border w-50 m-2 text-center p-2" >property Loan</li>
                         </ul>    
-                        <input type="text" className="mb-4" placeholder="Loan Amount" style={{width:"270px"}} />
+                        <input type="text" className="mb-4 p-2" placeholder="Loan Amount" style={{width:"260px", marginLeft:"8px"}} />
                         
                         <p> 
-                            <button type="button" class="btn btn-primary">Next<i class="fa-solid fa-arrow-right-long"></i></button>
+                            <button type="button" class="btn btn-primary" style={{marginLeft:"8px"}}>Next<i class="fa-solid fa-arrow-right-long"></i></button>
                         </p>
                     </div>
                 </div>

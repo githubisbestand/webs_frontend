@@ -1,10 +1,13 @@
      import React from "react";
-     import config from "../Config/config.json"
+     import config from "../Ambak/Config/config.json"
      import 'bootstrap/dist/css/bootstrap.min.css';
      import 'bootstrap/dist/js/bootstrap.bundle.min';
      
 
      function Form({ searchText, handleSearchChange, handleSearch }) {
+      const handleSubmit = (e) =>{
+        e.preventDefault();
+      }
          return (
             
                 <>
@@ -12,8 +15,8 @@
                         <div className="container-fluid d-flex justify-content-between align-items-center ">
                           <a className="navbar-brand" href="#">Table</a>
                           <div className="d-flex">
-                            <form className="d-flex me-2">
-                              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={searchText} onChange={handleSearchChange} />
+                            <form className="d-flex me-2" onSubmit={handleSubmit}>
+                              <input className="form-control me-2 search" type="search" placeholder="Search by Lead id" aria-label="Search" value={searchText} onChange={handleSearchChange} />
                               {config.shareButton && (
                                 <button className="btn btn-outline-success" type="submit" onClick={handleSearch}>Search</button>
                               )}

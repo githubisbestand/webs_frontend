@@ -6,7 +6,7 @@ function footer(){
     return(
         <>
                 <div className="footer">
-                    <footer className="container d-flex justify-content-between align-items-center">
+                    <footer className="container d-flex justify-content-between align-items-center text-center">
                         <div className="fff">
                             <div style={{marginBottom:"10px"}}>
                                 <img src="/img/lll.png" height="40px" width="100px" />
@@ -35,24 +35,23 @@ function footer(){
                             </div>
 
                         </div>
-                        <div className="d-flex justify-content-between w-50">
-                            <div className="fff">
+                        
+                        <div className="fff">
                                 <h1 className="heading">quick Link</h1>
                                 <a href="#" className="nav-link text-white text-center">Home</a>
                                 <a href="#" className="nav-link text-white text-center">Blogs</a>
                                 <a href="#" className="nav-link text-white text-center">EmaiCalculater</a>
-                            </div>
-                            <div className="fff">
+                        </div>
+                        <div className="fff">
                                 <h1 className="heading">Other</h1>
                                 <p className="para_one">Term && Condition</p>
                                 <p className="para_one">Privancy policy</p>
-                            </div>
+                        </div>
                             
-                            <div className="fff">
+                        <div className="fff">
                                 <h1 className="heading">Find us</h1>
                                 <a href="#" className="nav-link text-white text-center">contact us</a>
                                 <a href="#" className="nav-link text-white text-center">Facebook</a>
-                            </div>
                         </div>
                     </footer>
                     <hr style={{color:"white"}} />

@@ -79,3 +79,6 @@ table {
 .tabu{
     margin-top: 100px;
 }
+.search::placeholder{
+    font-size: small;
+}
