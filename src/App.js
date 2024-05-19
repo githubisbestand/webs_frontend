@@ -3,13 +3,13 @@ import Header from "./Ambak/Header/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Footer from "./Ambak/Header/Footer"; // Notice the uppercase 'F'
-import Home from "./Component/Pages/Home";
+import Footer from "./Ambak/Header/Footer"; 
 import Loan from "./Component/Pages/loan";
-import Table from "./Partnerscreen/partnerScreen";
+import Table from "./Ambak/Partnerscreen/partnerScreen";
 import Conatact from "./Component/Pages/Contact";
 import "./Component/Pages/contact.css";
-
+import Home from "./Component/Pages/Home";
+import "./index.css";
 function App() {
   return (
     <>

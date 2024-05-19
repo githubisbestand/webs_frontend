@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import Form from "../Component/form";
-import Pagination from "../Component/pagination";
-import "../index.css";
+import Form from "../../Component/form";
+import Pagination from "../../Component/pagination";
 import data from "../Data/Data.json";
 import config from '../Config/config.json'
 import Error from "../Error/error";
 import Modal from "../Module/module";
 import Share from "../Sare/sare";
-
+    
 function Table() {
     const [currentPage, setCurrentPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState("");
@@ -127,11 +126,11 @@ function Table() {
             )}
             {config.showPagination &&(
                 <>
-            {first &&(
-            <Pagination currentPage={currentPage} lastIndex={lastIndex} firstIndex={firstIndex} prePage={prePage} changeCpage={changeCpage} NextPage={NextPage} numbers={numbers} />
+                    {first &&(
+                    <Pagination currentPage={currentPage} lastIndex={lastIndex} firstIndex={firstIndex} prePage={prePage} changeCpage={changeCpage} NextPage={NextPage} numbers={numbers} />
+                    )}
+                </>
             )}
-            </>
-        )}
             <Modal isOpen={isModalOpen} onClose={closeModal}>
                 {shareLead && <Share lead={shareLead} />}
             </Modal>
