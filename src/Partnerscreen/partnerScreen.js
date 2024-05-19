@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Form from "../Component/form";
 import Pagination from "../Component/pagination";
-import "../style.css";
+import "../index.css";
 import data from "../Data/Data.json";
 import config from '../Config/config.json'
 import Error from "../Error/error";
 import Modal from "../Module/module";
 import Share from "../Sare/sare";
 
-function Home() {
+function Table() {
     const [currentPage, setCurrentPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState("");
     const [searchText, setSearchText] = useState("");
@@ -27,7 +27,7 @@ function Home() {
     const npage = Math.ceil(filteredData.length / recordPage);
     const numbers = [...Array(npage + 1).keys()].slice(1);
 
-    const prePage = () => {
+    const prePage = () => { 
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
         }
@@ -78,7 +78,7 @@ function Home() {
 
     return (
         <>
-        <div className="container">
+        <div className="container tabu">
         {config.showSearchBox &&(
             <Form searchText={searchText} handleSearchChange={handleSearchChange} handleSearch={handleSearch} handleReset = {handleReset}  />  
         )}
@@ -116,7 +116,7 @@ function Home() {
                             <td>{d.update}</td>
                             <td>{d.add}</td>
                             <td>
-                                <button style={{border:"0px", backgroundColor:"white"}} onClick={() => handleShareClick(d)}>
+                                <button style={{border:"0px", background:"none"}} onClick={() => handleShareClick(d)}>
                                     <i className="fa-solid fa-share"></i>
                                 </button>
                             </td>
@@ -140,4 +140,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Table;

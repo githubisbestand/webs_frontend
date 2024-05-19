@@ -9,13 +9,7 @@
     margin-top: 20px;
     background-color: rgb(230, 162, 162);
 }
-.first{
-    border: 1px solid gray;
-    margin-bottom: 30px;
-    padding: 10px;
-    color: red;
-    font-size: 22px;
-}
+
 .second, .Third{
     border: 1px solid gray;
     padding: 10px;
@@ -66,4 +60,22 @@
 .olo{
     width: 400px;
     text-align: center  ;
+}
+table {
+    width: 100%;
+      border-collapse: collapse;
+      /* width: 90vw; */
+      /* margin: auto; */
+      margin-top: 20px;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      font-family: Poppins;
+      font-size: 14px;
+    }
+.tabu{
+    margin-top: 100px;
 }

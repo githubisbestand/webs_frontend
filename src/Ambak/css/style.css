@@ -1,0 +1,99 @@
+.Header{
+    background: rgba(97, 71, 255, 1);
+
+}
+.first{
+    margin-top: 150px;
+}
+body{
+    font-family: Poppins;
+}
+.send{
+    width: 100px;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: yellowgreen;
+    color: white;
+    border: 0px;
+}
+/* CSS for mobile devices */
+@media (max-width: 767px) {
+    .Header .first {
+        display: none; /* Hide the first div containing the text on smaller screens */
+    }
+    .Header .first:first-child {
+        display: block; /* Display the first div containing the image on smaller screens */
+    }
+    .Header .first:nth-child(2) {
+        order: -1; /* Move the image div to the top on smaller screens */
+    }
+}
+.head{
+    margin-top: 50px;
+    background-color: rgb(219, 191, 245);
+}
+
+.coro{
+    border-radius: 20px;
+}
+.fir{
+    background-color: rgb(227, 227, 228);
+}
+
+.share-button{
+    font-size: 11px; 
+    margin-right: 10px; 
+}
+.footer{
+    background: rgba(33, 31, 50, 1);
+    font-family: Poppins;
+}
+.heading{
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+.para_one{
+    color: white;
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 400;
+}
+.nav-link{
+    font-size: 12px;
+    font-weight: 400;
+}
+.fff{
+    margin-top: 50px;
+}
+.margin-bottom-custom {
+    margin-bottom: 20px; /* Customize according to your requirement */
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.middle{
+    padding: 40px;
+    width: 200px;
+    height: 150px;
+    border-radius: 20px;
+}
+.cur{
+    margin-top: 50px;
+}
+.imn{
+    margin-bottom: 50px;
+}
+@media (max-width: 991.98px) {
+    .navbar-toggler {
+        position: fixed;
+        top: 30px;
+        right: 0;
+    }
+
+}

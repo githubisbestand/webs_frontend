@@ -1,0 +1,18 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    font-family: Poppins;
+}
+.loan{
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
+.coroend{
+    margin-top: 150px;
+    border-radius: 20px;
+}
+.imgSrc{
+    margin-left: 40px;
+}

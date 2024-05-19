@@ -1,0 +1,212 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: poppins;
+   
+}
+
+body{
+    background-color: #D9D9D9;
+}
+
+.current{
+    width: 80%;
+    height: 400px;
+    margin: 150px auto;
+    background-color: white;
+    border-radius: 5px;
+}
+.currentContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.firstContainer, .secondContainer{
+    width: 60%;
+    display: flex;
+    margin-left: 40px;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Poppins;
+}
+.paraOne{
+    font-size: 15px;
+    font-family: poppin;
+}
+.rightSide{
+    margin-left: 70px;
+    font-family: Poppins;
+}
+.btnFour{
+    width: 180px;
+    padding: 5px;
+    margin-top: 10px;
+    font-family: Poppins;
+    border-radius: 5px;
+    background-color: rgb(134, 134, 230);
+    border: 0px;
+    color: white;
+    cursor: pointer;
+}
+.fa-download{
+    margin-right: 10px;
+}
+.ford{
+    width:30% ;
+    margin: 0px auto;
+   
+}
+.firstPoint,.secondPoint{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  
+}
+.heading{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    font-family: Poppins;
+    margin-bottom: 0px;
+    margin-bottom: 2px;
+   
+}
+.paraTwo{
+    font-size: 12px;
+}
+.firstArrow{
+    display: flex; 
+    justify-content: space-between;
+}
+.secondArrow{
+    display: flex;
+}
+.high{
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.credit{
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 19px;
+}
+.onces{
+    margin-left: 10px;
+}
+
+.lastClass{
+    width: 80%;
+    height: 200px;
+    margin:10px auto;
+    background-color: white;
+    border-radius: 5px;
+    font-family: Poppins;
+}
+.sortPara{
+    font-size: 12px;
+}
+.lastSlc{
+    width: 90%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rightCompo{
+    width: 60%;
+}
+
+.offers{
+    width: 150px;
+    padding: 7px;
+    border-radius: 5px;
+    background-color: rgb(134, 134, 230);
+    color: white;
+    border: 0px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 12px;
+}
+.imgOne{
+    margin-top: 25px;
+}
+.fa-angle-right{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.TopNumaber{
+    width: 98%;
+    margin: 5px auto;
+    display: flex;
+    justify-content: space-between;
+   
+}
+input:focus {
+    outline:none ;
+}
+.powerd{
+    color: blue;
+}
+.btnSix{
+    width: 20px;
+    background-color: white;
+    border: 0px;
+    cursor: pointer;
+    margin-top: 17px;
+}
+.tolo{
+    display: flex;
+    justify-content: space-between;
+    width: 310px;
+}
+.parck{
+    font-weight: 600;
+    margin-top: 15px;
+}
+.toro,.cibil{
+    font-size: small;
+    font-weight: 400;
+    font-family: Poppins;
+    color: gray;
+}
+.cibil{
+    color: blue;
+}
+.clock{
+    padding: 5px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #BAB7B7;
+}
+.pera{
+    display: flex;
+    border: 1px solid #BAB7B7;
+    width: 340px;
+    font-family: Poppins;
+    border-radius: 5px;
+}
+.edit{
+    border: 0px;
+    background-color: white;
+    color: blue;
+    cursor: pointer;
+    width: 60px;
+    text-align: right;
+}
+.inur{
+    width: 240px;
+    border: 0px;
+}
+h2{
+    font-family: Poppins;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.Secure{
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}

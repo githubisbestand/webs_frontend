@@ -1,35 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import Home from './Partnerscreen/partnerScreen';
-import "./index.css";
+import React from "react";
+import Header from "./Ambak/Header/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import config from "./Config/config.json";
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Footer from "./Ambak/Header/Footer"; // Notice the uppercase 'F'
+import Home from "./Component/Pages/Home";
+import Loan from "./Component/Pages/loan";
+import Table from "./Partnerscreen/partnerScreen";
+import Conatact from "./Component/Pages/Contact";
+import "./Component/Pages/contact.css";
 
 function App() {
-    const [showData, setShowData] = useState(false);
-    const [curTime, setCurTime] = useState(new Date());
-
-    useEffect(()=>{
-      const interval = setInterval(()=>{
-        setCurTime(new Date())
-      },1000)
-      return () =>{
-        clearInterval(interval)
-      }
-    }, [])
-
-    useEffect(()=>{
-      const seduleTime = new Date(config.seduleDate + 'T' + config.seduleTime)
-      setShowData(curTime >= seduleTime);
-    }, [curTime])
-
-    return (
-     <>
-         <p>Current Time: {curTime.toLocaleString()}</p>
-         {showData &&(
-         <Home/>
-        )}
-     </>
-    );
+  return (
+    <>
+      <BrowserRouter>
+      <div className=" mb-5">
+        <Header />
+        </div>
+        {/* Added margin bottom for space between Header and Routes */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/loan" element={<Loan />} />
+            <Route path="/table" element={<Table />} />
+            <Route path="/contact" element={<Conatact />} />
+          </Routes>
+       
+        <Footer /> {/* No need for extra margin, Footer will naturally follow the content */}
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;
