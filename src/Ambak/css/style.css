@@ -46,9 +46,9 @@ body{
 }
 .footer{
     background: rgba(33, 31, 50, 1);
-    font-family: Poppins;
+    font-family: Poppins;   
 }
-.heading{
+.heading_footer{
     color: white;
     font-size: 25px;
     text-align: center;
@@ -57,14 +57,12 @@ body{
 .para_one{
     color: white;
     text-align: center;
-    margin-bottom: 0;
+    margin-bottom: 10px;
     font-size: 12px;
     font-weight: 400;
 }
-.nav-link{
-    font-size: 12px;
-    font-weight: 400;
-}
+
+
 .fff{
     margin-top: 50px;
 }

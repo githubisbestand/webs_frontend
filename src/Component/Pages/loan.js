@@ -19,7 +19,7 @@ function Loan() {
           {showVerification !== 4 && (
                <>
             
-                <div className="container coroend bg-white mb-5">                  
+                <div className="container coroend bg-light mb-5">                  
                 <div className="d-flex justify-content-end">
                     <button className="text-center btn" onClick={handleClick}>
                         <i className="fa-solid fa-xmark"></i>
@@ -53,8 +53,8 @@ function Loan() {
                                     <h3 style={{fontSize:"30px", fontWeight:"600", marginBottom:"20px"}}>Verification</h3>
                                     <p style={{fontSize:"17px", fontWeight:"400",  marginBottom:"20px"}}>The customer will receive a verification code on their PAN-linked mobile number</p>
                                     <p style={{border:"1px solid gray", width:"350px", borderRadius:"5px"}} className="d-flex">
-                                        <input type="text" placeholder="Enter PAN number" style={{width:"300px", padding:"7px",  outline:"none", border:"0px" }} className="border border" />
-                                        <button className="bg-white border border-0 text-center ">Edit</button>
+                                        <input type="text" placeholder="Enter PAN number" style={{width:"300px", padding:"7px",  outline:"none", border:"0px" }} className="border-0" />
+                                        <button className="bg-white border border-0 text-center text-primary ">Edit</button>
                                     </p>
                                     <button type="button" class="btn btn-primary" onClick={handleNextClick} style={{marginLeft:"250px", width:"100px"}}>Next <i className="fa-solid fa-arrow-right-long"></i></button>
                                  </div>
@@ -83,7 +83,7 @@ function Loan() {
                           <div  className="current">
                 <div className="TopNumaber">
                     <div className="tolo">
-                        <button className="btnSix"><i class="fa-solid fa-arrow-left-long"></i></button>
+                        <button className="btnSix"  onClick={handleClick}><i class="fa-solid fa-arrow-left-long"></i></button>
                         <p className="parck">Credit Report Details <span className="toro">Powered by</span>  <span className="cibil">CIBIL</span></p>
                     </div>
                     <button className="btnSix" onClick={handleClick}>x</button>
@@ -117,7 +117,7 @@ function Loan() {
                             <div className="firstArrow">
                                
                                <div className="clock">
-                                    <img src="/img/logo4.svg" width="17" height="25"  />
+                                    <img src="/img/logo4.svg" width="17" height="25" alt="img" />
                                </div>
                                 
                                 <div className="onces">
@@ -136,7 +136,7 @@ function Loan() {
                     <div className="secondPoint">
                             <div className="firstArrow">
                                 <div className="clock">
-                                    <img src="/img/logo4.svg" width="17" height="25"  />
+                                    <img src="/img/logo4.svg" width="17" height="25" alt="img" />
                                </div>                                
                                 <div className="onces">
                                     <h3 className="heading">Repayment History</h3>
@@ -158,7 +158,7 @@ function Loan() {
                     <div className="secondPoint">
                             <div className="firstArrow">
                                 <div className="clock">
-                                    <img src="/img/logo4.svg" width="17" height="25"  />
+                                    <img src="/img/logo4.svg" width="17" height="25" alt="img" />
                                </div>                                
                                 <div className="onces">
                                     <h3 className="heading">Repayment History</h3>
@@ -180,7 +180,7 @@ function Loan() {
                         <div className="secondPoint">
                             <div className="firstArrow">
                                 <div className="clock">
-                                    <img src="/img/logo4.svg" width="17" height="25"  />
+                                    <img src="/img/logo4.svg" width="17" height="25" alt="img" />
                                </div>                                
                                 <div className="onces">
                                     <h3 className="heading">Repayment History</h3>

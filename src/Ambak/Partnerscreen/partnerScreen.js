@@ -77,6 +77,7 @@ function Table() {
 
     return (
         <>
+        {config.isCommingSoon &&(
         <div className="container tabu">
         {config.showSearchBox &&(
             <Form searchText={searchText} handleSearchChange={handleSearchChange} handleSearch={handleSearch} handleReset = {handleReset}  />  
@@ -135,6 +136,7 @@ function Table() {
                 {shareLead && <Share lead={shareLead} />}
             </Modal>
         </div>
+        )}
         </>
     );
 }

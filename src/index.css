@@ -77,8 +77,11 @@ table {
       font-size: 14px;
     }
 .tabu{
-    margin-top: 100px;
+    margin-top: 10px;
 }
 .search::placeholder{
     font-size: small;
+}
+.second_footer{
+    width: 800px;
 }

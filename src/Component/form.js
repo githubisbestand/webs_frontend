@@ -4,7 +4,7 @@
      import 'bootstrap/dist/js/bootstrap.bundle.min';
      
 
-     function Form({ searchText, handleSearchChange, handleSearch }) {
+     function Form({ searchText, handleSearchChange, handleSearch,handleReset }) {
       const handleSubmit = (e) =>{
         e.preventDefault();
       }
@@ -16,7 +16,10 @@
                           <a className="navbar-brand" href="#">Table</a>
                           <div className="d-flex">
                             <form className="d-flex me-2" onSubmit={handleSubmit}>
-                              <input className="form-control me-2 search" type="search" placeholder="Search by Lead id" aria-label="Search" value={searchText} onChange={handleSearchChange} />
+                              <div className="border border-gray px-2" style={{marginRight:"10px", borderRadius:"5px"}}>
+                                  <input placeholder="Search by Lead ID" className="border-0 bg-light mt-1 " value={searchText} onChange={handleSearchChange} />
+                                  <button className="border-0 bg-light" onClick={handleReset}><i class="fa-solid fa-x"></i></button>
+                              </div>
                               {config.shareButton && (
                                 <button className="btn btn-outline-success" type="submit" onClick={handleSearch}>Search</button>
                               )}

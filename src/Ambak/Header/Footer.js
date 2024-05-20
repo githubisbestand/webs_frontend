@@ -37,25 +37,25 @@ function footer(){
                         </div>
                         
                         <div className="fff">
-                                <h1 className="heading">quick Link</h1>
-                                <a href="#" className="nav-link text-white text-center">Home</a>
-                                <a href="#" className="nav-link text-white text-center">Blogs</a>
-                                <a href="#" className="nav-link text-white text-center">EmaiCalculater</a>
+                                <h1 className="heading_footer">Quick Link</h1>
+                                <a href="#" className=" nav-link mb-2 text-white text-center " style={{fontSize:"12px"}}>Home</a>
+                                <a href="#" className=" nav-link  text-white text-center" style={{fontSize:"12px"}}>Blogs</a>
+                                
                         </div>
                         <div className="fff">
-                                <h1 className="heading">Other</h1>
+                                <h1 className="heading_footer">Other</h1>
                                 <p className="para_one">Term && Condition</p>
                                 <p className="para_one">Privancy policy</p>
                         </div>
                             
                         <div className="fff">
-                                <h1 className="heading">Find us</h1>
-                                <a href="#" className="nav-link text-white text-center">contact us</a>
-                                <a href="#" className="nav-link text-white text-center">Facebook</a>
+                                <h1 className="heading_footer">Find us</h1>
+                                <a href="#" className=" nav-link  mb-2   text-white text-center" style={{fontSize:"12px"}}>contact us</a>
+                                <a href="#" className=" nav-link  text-white text-center" style={{fontSize:"12px"}}>Facebook</a>
                         </div>
                     </footer>
                     <hr style={{color:"white"}} />
-                    <p className="text-white text-center para_one">* Copyright 2024 TENB FINTAC PRIVATE LIMTED. All Right Reserved. </p>
+                    <p className="text-white text-center para_one  ">* Copyright 2024 TENB FINTAC PRIVATE LIMTED. All Right Reserved. </p>
                 </div>       
         </>
     )
