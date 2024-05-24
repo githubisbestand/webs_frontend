@@ -6,7 +6,7 @@ function footer(){
     return(
         <>
                 <div className="footer">
-                    <footer className="container d-flex justify-content-between align-items-center text-center">
+                    <footer className="nav d-flex justify-content-between align-items-center text-center">
                         <div className="fff">
                             <div style={{marginBottom:"10px"}}>
                                 <img src="/img/lll.png" height="40px" width="100px" />

@@ -4,7 +4,7 @@ function Home(){
     return(
         <>
                 <div className="bg-dark">
-                    <div className=" container d-flex justify-content-between align-items-center  ">
+                    <div className=" nav d-flex justify-content-between align-items-center  ">
                         <div className="first w-50 ">
                         <h1 className="fw-bold" style={{ color: "yellow", fontSize: "3rem" }}>Subscribe Now</h1>
                         <h2 className="fw-bold" style={{ color: "white", fontSize: "3rem" }}>To our News Later</h2>
@@ -26,14 +26,14 @@ function Home(){
                         </div>
 
                         <div className="first">
-                            <img src="/img/left.jpeg" width="400" height="400"  style={{borderRadius:"50%"}}/>
+                            <img src="/img/left.jpeg" width="400" height="400"  style={{borderRadius:"50%"}} alt="left"/>
                         </div>
 
                     </div>
                 </div>
 
 
-                <div className="container cur">
+                <div className="cur" style={{width:"1250px", margin:"50px auto"}}>
                     <div>
                         <p className="margin-bottom-custom text-center border border-solid px-1 bg-secondary text-white"> DIGITAL MARKETING</p>
                         <div className="d-flex justify-content-evenly align-items-center">
@@ -54,7 +54,7 @@ function Home(){
                             </div>
                         </div>
                         <div className="text-center mt-5 mb-4">
-                            <img src="/img/nann.jpg" />
+                            <img src="/img/nann.jpg" alt="nano" />
                         </div>
                     </div>
                 </div>       

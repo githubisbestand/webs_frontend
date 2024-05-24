@@ -19,14 +19,14 @@ function Loan() {
           {showVerification !== 4 && (
                <>
             
-                <div className="container coroend bg-light mb-5">                  
+                <div style={{width:"1100px", margin:"150px auto"}} className=" coroend bg-light mb-5">                  
                 <div className="d-flex justify-content-end">
                     <button className="text-center btn" onClick={handleClick}>
                         <i className="fa-solid fa-xmark"></i>
                     </button>
                 </div>
 
-                    <div className="Container d-flex justify-content-between align-items-center">
+                    <div className=" d-flex justify-content-between align-items-center">
                             {showVerification !== 3 && (
                             <div className="imgSrc">
                                 <img src="/img/logo.svg" width="450" height="350" alt="Logo" />
@@ -89,8 +89,8 @@ function Loan() {
                     <button className="btnSix" onClick={handleClick}>x</button>
                 </div>
                 
-                <div className="currentContainer">
-                    <div className="firstContainer">
+                <div className="current">
+                    <div className="first">
                         <div className="firstImg">
                             <img src="/img/logo3.svg" width="200" height="200" alt="Logo" />
                             <button className="btnFour"><i class="fa-solid fa-download"></i>Download Report</button>

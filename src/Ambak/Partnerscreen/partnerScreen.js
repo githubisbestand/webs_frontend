@@ -78,7 +78,7 @@ function Table() {
     return (
         <>
         {config.isCommingSoon &&(
-        <div className="container tabu">
+        <div style={{width:"1250px", margin:" 110px auto"}}>
         {config.showSearchBox &&(
             <Form searchText={searchText} handleSearchChange={handleSearchChange} handleSearch={handleSearch} handleReset = {handleReset}  />  
         )}

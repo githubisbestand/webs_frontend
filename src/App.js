@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Ambak/Header/Header";
 import Footer from "./Ambak/Header/Footer";
@@ -11,66 +11,55 @@ import "./Component/Pages/contact.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import "./index.css";
+import Comming from "./Component/Pages/comming";
+import Create from "./Component/Create";
+import Read from "./Component/Read";
+import Update from "./Component/Update";
+import Login from "./Ambak/login/Login";
+
 
 function App() {
-  const [showData, setShowData] = useState(false);
-  const [curTime, setCurTime] = useState(new Date());
-  const [scheduledTime, setScheduledTime] = useState(null);
+  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurTime(new Date());
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+    const scheduledDateTime = new Date(config.seduleDate + "T" + config.seduleTime);
+    const currentTime = new Date();
+
     
-  useEffect(() => {
-    if (config.seduleDate && config.seduleTime) {
-      const scheduleDateTime = new Date(config.seduleDate + "T" + config.seduleTime);
-      setScheduledTime(scheduleDateTime);
+    if (currentTime >= scheduledDateTime) {
+      setShowContent(true);
+    } else {
+      const timeout = setTimeout(() => {
+        setShowContent(true);
+      }, scheduledDateTime - currentTime);
+      
+      return () => clearTimeout(timeout);
     }
   }, []);
-
-  useEffect(() => {
-    if (scheduledTime && curTime >= scheduledTime) {
-      setShowData(true);
-    } else {
-      setShowData(false); 
-    }
-  }, [curTime, scheduledTime]);
-  
-  const calculateCountdown = () => {
-    const difference = scheduledTime.getTime() - curTime.getTime();
-    if (difference > 0) {
-      const hours = Math.floor(difference / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-      return `${hours}h ${minutes}m ${seconds}s remaining`;
-    } else {
-      return " ";
-    }
-  };
-  
 
   return (
     <>
       <BrowserRouter>
-        <div className="mb-5">
-          <Header />
-        </div>
-        {!showData &&(
-        <p className="container" style={{marginTop:"100px"}}> your project go live on : {calculateCountdown()}</p>
+        {showContent ? (
+          <>
+            <div className="mb-5">
+              <Header />
+            </div>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/loan" element={<Loan />} />
+              <Route path="/table" element={<Table />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/signup" element= {<Read />} />
+              <Route path="/create" element = {<Create />} />
+              <Route path="/update/:id" element = {<Update />} />
+              <Route path="/login" element = {<Login />} />
+            </Routes> 
+            <Footer />
+          </>
+        ) : (
+          <Comming config={config} />
         )}
-        {showData && (
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/loan" element={<Loan />} />
-            <Route path="/table" element={<Table />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes> 
-        )}
-        {!showData && <div className="container" style={{marginBottom:"280px"}}>Project will be displayed after the scheduled time</div>}
-        <Footer />
       </BrowserRouter>
     </>
   );

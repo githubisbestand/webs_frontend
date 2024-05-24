@@ -9,7 +9,7 @@ body{
     font-family: Poppins;
 }
 .send{
-    width: 100px;
+    width: 100px;   
     padding: 5px;
     border-radius: 4px;
     background-color: yellowgreen;
@@ -94,4 +94,20 @@ body{
         right: 0;
     }
 
+}
+
+.table_read{
+    margin-top: 1000px;
+}
+.form_input{
+    width: 350px;
+    padding: 5px;
+}
+
+.form_login{
+    background: linear-gradient(97.02deg, #ECE7FE 0%, #EAFAF3 102.86%);
+}
+
+::placeholder{
+    font-size: 12px;
 }

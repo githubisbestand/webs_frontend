@@ -2,7 +2,7 @@ import React from "react";
 
 function Pagination({ currentPage, lastIndex, firstIndex, prePage, changeCpage, NextPage, numbers }) {
     return (
-        <div className="container">
+        <div>
             <ul className="pagination " style={{ marginLeft: "450px" }}>
                 <li className="page-item">
                     <a href="#" className="page-link" onClick={prePage}>prev</a>
