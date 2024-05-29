@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/style.css";
 import { Link } from "react-router-dom";
-
+import Modal from "../Module/module";
+import Login from "../login/Login";
 function Header() {
+
+    const [isModalOpen, setisModalOpen] = useState(false);
+
+
+    const handleLogin = () =>{
+        setisModalOpen(true)
+    }
+
+    const closeModal = () =>{
+        setisModalOpen(false);
+    }
+
     return (
         <>
             <div className="fir fixed-top">
@@ -38,15 +51,18 @@ function Header() {
                                 </li>
                             </ul>
                             <form className="d-flex">
-                               <li className="nav-item d-flex ">
-                                   
-                                    <Link className="nav-link text-primary  " to={"/login"}>Login</Link>
+                               <li className="nav-item d-flex ">  
+                                    <Link className="nav-link text-primary"  onClick={handleLogin} >Login</Link>
                                </li>
                             </form>
                         </div>
                     </div>
                 </nav>
+                <Modal isOpen={isModalOpen} onClose={closeModal}>
+                    <Login />
+                </Modal>
             </div>
+           
         </>
     );
 }

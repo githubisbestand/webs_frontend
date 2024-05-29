@@ -1,134 +1,74 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function Login(){
+function Login() {
+  const [email, setEmail] = useState('');
+  const [otp, setOtp] = useState('');
+  const [password, setPassword] = useState('');
+  const [curData, setData] = useState(false);
+  const [verifyData, setVerifyData] = useState(false)
 
-    const [setup, setSetup] = useState(1);
-    
-    const [values, setValues] = useState({
-        email : " ",
-        password : " "
-    })
-
- 
-
-
-    const handleSubmit = (e) =>{
-        e.preventDefault();
-        axios.post("http://localhost:5000/login",values)
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
-        console.log("values", values);
+  const handleEmailSubmit = async () => {
+    try {
+      await axios.post('http://localhost:5000/send-otp', { email });
+      setData(true);
+    } catch (error) {
+      console.error('Error sending OTP:', error);
     }
+  };
 
-    const handleChange = (e) => {
-        setValues({ ...values, [e.target.name]: e.target.value }); 
-    };
+  const handleOtpSubmit = async () => {
+    try {
+      await axios.post('http://localhost:5000/verify-otp', { email, otp });
+      setVerifyData(true)
+    } catch (error) {
+      console.error('Error verifying OTP:', error);
+    }
+  };
 
-    return(
-        <>
-                <div className="justify-content-center aligen-items-center border border-white px-2 p-5 form_login" style={{ width:"400px", margin:"100px auto"}}>
-                    <p className="text-center" style={{fontSize:"25px"}}>Login</p>
-                    <form onSubmit={handleSubmit}>  
-                        {setup === 1 && (
-                        <div className="mb-4">
-                            <label>UserEmail</label>
-                            <input type="email" placeholder="Email" name="email"    autoComplete="off" required  className="form_input mb-3" onChange={handleChange}/>
-                            {setup != 3 &&(
-                            <button className="btn btn-primary" >Next</button>
-                            )}
+  const handlePasswordSubmit = async () => {
+    try {
+      await axios.post('http://localhost:5000/save-password', { email, password });
+      alert('Password saved successfully');
+    } catch (error) {
+      console.error('Error saving password:', error);
+    }
+  };
+
+  return (
+    <div className=" mt-2 bg-white">
+      <div className="row justify-content-center aligen-items-center">
+          
+            <div className="">
+                <div>                
+                  <div className="mb-3">
+                    <label htmlFor='' className='mb-2'>Enter Email :</label>
+                    <input type="email" autoComplete='off' required className="form-control" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    {curData && (
+                        <div className="mt-3">
+                            <label className='mb-2'>Enter otp :</label><br/>
+                            <div style={{width : "250px", display:"flex", justifyContent:"space-between", alignItems:"center", border:"1px solid gray", padding:"5px", borderRadius:"5px"}}> 
+                                <input type="text" required placeholder="Enter OTP" value={otp} onChange={(e) => setOtp(e.target.value)} style={{border:"0px", outline:"none"}} />
+                                <button style={{fontSize:"13px", width:"40px", border:"0px", color:"blue", backgroundColor:"white"}} onClick={handleOtpSubmit}>Verify</button>
+                            </div>
                         </div>
-                        )}
-
-                        {setup === 2 &&(
-                        <div className="mb-3">
-                            <label>Enter otp : </label>
-                            <input type="text" placeholder="Enter otp" autoComplete="off" className="otp" style={{marginLeft:"10px"}} /> 
-                        </div>
-                        )}
-                        {setup === 3 &&(
-                        <div className="mb-4">
-                            <label>UserPassword</label>
-                            <input type="password" placeholder="password" name="password"   autoComplete="off"  className="form_input" onChange={handleChange} required />
-                        </div>  
-                         )}
-                         {setup === 3 &&(                     
-                        <button type="submit" className="btn btn-success">submit</button>
-                        )}
-                    </form>
+                    )}
+                    </div>
+                  <button className="btn btn-primary" onClick={handleEmailSubmit}>Next</button>
                 </div>
-        </>
-    )
+                {verifyData &&(
+                <div>
+                    <div className=" mt-3 mb-3">
+                        <label htmlFor='' className='mb-2'>Create Password :</label>
+                        <input type="password" autoComplete="off" className="form-control" required placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    </div>
+                    <button className="btn btn-primary" onClick={handlePasswordSubmit}>create Password</button>
+                </div>
+                )}
+            </div>
+          </div>
+      </div>
+  );
 }
+
 export default Login;
-
-// App.js
-// import React, { useState } from 'react';
-// import axios from 'axios';
-
-// function Login(){
-//   const [email, setEmail] = useState('');
-//   const [otp, setOtp] = useState('');
-//   const [emailExists, setEmailExists] = useState(false);
-//   const [otpSent, setOtpSent] = useState(false);
-
-//   const checkEmailExists = async () => {
-//     try {
-//       const response = await axios.post('/check-email', { email });
-//       setEmailExists(response.data.exists);
-//     } catch (error) {
-//       console.error('Error checking email:', error);
-//     }
-//   };
-
-//   const sendOtp = async () => {
-//     try {
-//       const response = await axios.post('/http://localhost:3000/send-otp', { email });
-//       setOtpSent(true);
-//       console.log(response.data.message);
-//     } catch (error) {
-//       console.error('Error sending OTP:', error);
-//     }
-//   };
-
-//   const verifyOtpAndSaveData = async () => {
-//     try {
-//       const response = await axios.post('/http://localhost:3000/verify-otp', { email, otp, additionalData: {} }); // Additional data to save
-//       console.log(response.data.message);
-//     } catch (error) {
-//       console.error('Error verifying OTP and saving data:', error);
-//     }
-//   };
-
-//   return (
-//     <div style={{marginTop:"150px", marginBottom:"150px"}}>
-//       <input
-//         type="email"
-//         placeholder="Enter your email"
-//         value={email}
-//         onChange={(e) => setEmail(e.target.value)}
-//       />
-//       <button onClick={checkEmailExists}>Next</button>
-
-//       {emailExists && (
-//         <div>
-//           {otpSent ? (
-//             <div>
-//               <input
-//                 type="text"
-//                 placeholder="Enter OTP"
-//                 value={otp}
-//                 onChange={(e) => setOtp(e.target.value)}
-//               />
-//               <button onClick={verifyOtpAndSaveData}>Submit</button>
-//             </div>
-//           ) : (
-//             <button onClick={sendOtp}>Send OTP</button>
-//           )}
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Login;

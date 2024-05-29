@@ -53,7 +53,6 @@ function App() {
               <Route path="/signup" element= {<Read />} />
               <Route path="/create" element = {<Create />} />
               <Route path="/update/:id" element = {<Update />} />
-              <Route path="/login" element = {<Login />} />
             </Routes> 
             <Footer />
           </>

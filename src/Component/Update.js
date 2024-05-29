@@ -38,7 +38,7 @@ function Update()
         console.log("values", values);
         e.preventDefault();
         dispatch(UpdateUser(values))
-        navigate("/");
+        navigate("/signup");
     }
 
     return(
