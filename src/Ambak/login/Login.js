@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
   const [password, setPassword] = useState('');
-  const [curData, setData] = useState(false);
-  const [verifyData, setVerifyData] = useState(false)
-
+  const [curData, setData] = useState(1);
+  const [canLoginWithPassword, setCanLoginWithPassword] = useState(false);
+  
+  const navigate = useNavigate();
+  
   const handleEmailSubmit = async () => {
     try {
-      await axios.post('http://localhost:5000/send-otp', { email });
-      setData(true);
+      const response = await axios.post('http://localhost:5000/send-otp', { email });
+      if (response.data.is_verified === '1') {
+        setCanLoginWithPassword(true);
+        setData(4); 
+      } else {
+        setData(2); 
+      }
     } catch (error) {
       console.error('Error sending OTP:', error);
     }
@@ -20,7 +28,7 @@ function Login() {
   const handleOtpSubmit = async () => {
     try {
       await axios.post('http://localhost:5000/verify-otp', { email, otp });
-      setVerifyData(true)
+      setData(3);
     } catch (error) {
       console.error('Error verifying OTP:', error);
     }
@@ -29,45 +37,71 @@ function Login() {
   const handlePasswordSubmit = async () => {
     try {
       await axios.post('http://localhost:5000/save-password', { email, password });
-      alert('Password saved successfully');
+      alert('login');
     } catch (error) {
       console.error('Error saving password:', error);
     }
   };
 
+  const handlePasswordLogin = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/login-password', { email, password });
+      navigate("/HomeFile")
+      alert('Login successful');
+    } catch (error) {
+      console.error('Error logging in with password:', error);
+      alert('you enter wrong password please enter right password')
+    }
+  };
+
+
   return (
-    <div className=" mt-2 bg-white">
-      <div className="row justify-content-center aligen-items-center">
-          
-            <div className="">
-                <div>                
-                  <div className="mb-3">
-                    <label htmlFor='' className='mb-2'>Enter Email :</label>
-                    <input type="email" autoComplete='off' required className="form-control" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                    {curData && (
-                        <div className="mt-3">
-                            <label className='mb-2'>Enter otp :</label><br/>
-                            <div style={{width : "250px", display:"flex", justifyContent:"space-between", alignItems:"center", border:"1px solid gray", padding:"5px", borderRadius:"5px"}}> 
-                                <input type="text" required placeholder="Enter OTP" value={otp} onChange={(e) => setOtp(e.target.value)} style={{border:"0px", outline:"none"}} />
-                                <button style={{fontSize:"13px", width:"40px", border:"0px", color:"blue", backgroundColor:"white"}} onClick={handleOtpSubmit}>Verify</button>
-                            </div>
-                        </div>
-                    )}
-                    </div>
-                  <button className="btn btn-primary" onClick={handleEmailSubmit}>Next</button>
-                </div>
-                {verifyData &&(
-                <div>
-                    <div className=" mt-3 mb-3">
-                        <label htmlFor='' className='mb-2'>Create Password :</label>
-                        <input type="password" autoComplete="off" className="form-control" required placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                    </div>
-                    <button className="btn btn-primary" onClick={handlePasswordSubmit}>create Password</button>
-                </div>
-                )}
+    <div className="mt-2 bg-white">
+      <div className="row justify-content-center align-items-center">
+        <div className="">
+          {curData === 1 && (
+            <div>
+              <div className="mb-3">
+                <label htmlFor='' className='mb-2'>Enter Email :</label>
+                <input type="email" autoComplete='off' required className="form-control" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              </div>
+              <button className="btn btn-primary" onClick={handleEmailSubmit}>Next</button>
             </div>
+          )}
+
+          {curData === 2 && (
+            <div>
+              <div className="mt-3">
+                <label className='mb-2'>Enter otp :</label>
+                <input type="text" className='form-control' required placeholder="Enter OTP" value={otp} onChange={(e) => setOtp(e.target.value)} />
+              </div>
+              <button className="btn btn-primary mt-3" onClick={handleOtpSubmit}>Verify OTP</button>
+            </div>
+          )}
+
+          {curData === 3 && (
+            <div>
+            <div className="mt-3 mb-3">
+              <label htmlFor='' className='mb-2'>Create Password :</label>
+              <input type="password" autoComplete="off" className="form-control" required placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            </div>
+            <Link className="btn btn-primary" to={"/HomeFile"} onClick={handlePasswordSubmit}>Login</Link>
           </div>
+          )}
+
+          {curData === 4 && canLoginWithPassword && (
+            <div>
+              <div className="mt-3 mb-3">
+                <label htmlFor='' className='mb-2'>Enter Password :</label>
+                <input type="password" autoComplete="off" className="form-control" required placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} />
+              </div>
+              <button className="btn btn-primary"  onClick={handlePasswordLogin}>Login</button>
+            </div>
+          )}
+
+        </div>
       </div>
+    </div>
   );
 }
 

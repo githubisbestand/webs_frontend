@@ -16,6 +16,7 @@ import Create from "./Component/Create";
 import Read from "./Component/Read";
 import Update from "./Component/Update";
 import Login from "./Ambak/login/Login";
+import HomeFile from "./Dashboard/HomeFile";
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
               <Route path="/signup" element= {<Read />} />
               <Route path="/create" element = {<Create />} />
               <Route path="/update/:id" element = {<Update />} />
+              <Route path="/HomeFile" element = {<HomeFile />} />
             </Routes> 
             <Footer />
           </>

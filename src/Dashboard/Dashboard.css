@@ -1,0 +1,26 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.nav_Homefile_first{
+    margin-top: 150px;
+    font-family: Poppins;
+}
+.fa-user{
+    font-size: 30px;
+}
+.fa-user-xmark{
+    font-size: 30px;
+}
+.fa-x{
+    font-size: 30px;
+}
+.fa-phone{
+    font-size: 30px;
+}
+.fa-rotate-right{
+    font-size: 30px;
+}
+.fa-list{
+    font-size: 30px;
+}
