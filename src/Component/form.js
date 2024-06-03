@@ -18,7 +18,7 @@
                             <form className="d-flex me-2" onSubmit={handleSubmit}>
                               <div className="border border-gray px-2" style={{marginRight:"10px", borderRadius:"5px"}}>
                                   <input placeholder="Search by Lead ID" className="border-0 bg-light mt-1 " value={searchText} onChange={handleSearchChange} />
-                                  <button className="border-0 bg-light" onClick={handleReset}><i class="fa-solid fa-x"></i></button>
+                                  <button className="border-0 bg-light" onClick={handleReset}><i class="fa-solid fa-x" style={{fontSize:"10px"}}></i></button>
                               </div>
                               {config.shareButton && (
                                 <button className="btn btn-outline-success" type="submit" onClick={handleSearch}>Search</button>

@@ -111,3 +111,29 @@ body{
 ::placeholder{
     font-size: 12px;
 }
+
+.form_cretae_lead{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 700px;
+    margin: 150px auto;
+    background-color: rgba(207, 241, 230, 0.87);
+    padding: 80px;
+    border-radius: 20px;
+    font-family: Poppins;
+}
+.form_control_one{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+.form_control_two{
+    display: flex;
+    justify-content: space-between;
+}
+.input_lead{
+    width: 230px;
+    padding: 6px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}

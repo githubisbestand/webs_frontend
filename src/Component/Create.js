@@ -54,7 +54,6 @@ function Create() {
                     <label htmlFor="password">Password:</label>
                     <input type="password" id="password" name="password" required autoComplete="new-password" onChange={handleChange} />
                 </div>
-                
                 <input type="submit" value="Sign Up" />
             </form>
         </div>

@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../react-crud/slice/userDetails';
+import { useSelector } from 'react-redux';
 
-function Login() {
+function Login({onLoginSuccess}) {
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
   const [password, setPassword] = useState('');
   const [curData, setData] = useState(1);
   const [canLoginWithPassword, setCanLoginWithPassword] = useState(false);
   
-  const navigate = useNavigate();
   
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+
+
+
   const handleEmailSubmit = async () => {
     try {
       const response = await axios.post('http://localhost:5000/send-otp', { email });
@@ -37,7 +45,9 @@ function Login() {
   const handlePasswordSubmit = async () => {
     try {
       await axios.post('http://localhost:5000/save-password', { email, password });
-      alert('login');
+      navigate("/HomeFile");
+      onLoginSuccess();
+      alert('login successfull');
     } catch (error) {
       console.error('Error saving password:', error);
     }
@@ -46,8 +56,13 @@ function Login() {
   const handlePasswordLogin = async () => {
     try {
       const response = await axios.post('http://localhost:5000/login-password', { email, password });
-      navigate("/HomeFile")
-      alert('Login successful');
+      const firstName = response.data;
+      console.log('response from server', response.data);
+        dispatch(setUser({firstName}))
+        console.log('Dispatched firstName:', firstName); // Debug statement
+        navigate("/HomeFile")
+        onLoginSuccess();
+        alert('Login successful')  
     } catch (error) {
       console.error('Error logging in with password:', error);
       alert('you enter wrong password please enter right password')
@@ -85,7 +100,7 @@ function Login() {
               <label htmlFor='' className='mb-2'>Create Password :</label>
               <input type="password" autoComplete="off" className="form-control" required placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
-            <Link className="btn btn-primary" to={"/HomeFile"} onClick={handlePasswordSubmit}>Login</Link>
+            <button className="btn btn-primary" onClick={handlePasswordSubmit}>Login</button>
           </div>
           )}
 

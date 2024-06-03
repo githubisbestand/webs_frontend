@@ -51,9 +51,14 @@ const userDetail = createSlice({
     initialState: {
         user: [],
         loading: false,
-        error: null
+        error: null,
+        firstName : null
     },
-    reducers: {},
+    reducers: {
+        setUser : (state, action) =>{
+            state.firstName = action.payload.firstName;
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(showUser.pending, (state) => {
@@ -112,4 +117,5 @@ const userDetail = createSlice({
     }
 });
 
+export  const { setUser } = userDetail.actions;
 export default userDetail.reducer;
