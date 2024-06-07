@@ -143,3 +143,41 @@ body{
     width: 70px;
     text-align: center;
 }
+/* Sidebar initial state, hidden offscreen to the left */
+.side-nav {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Adjust this width based on your sidebar width */
+    width: 250px; /* Adjust this width based on your sidebar width */
+    height: 100%;
+    background-color: #6a74fc;
+    color: white;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+    padding-top: 60px; /* Adjust based on your navbar height */
+}
+
+/* Sidebar visible state */
+.side-nav.open {
+    left: 0;
+}
+
+/* Style for sidebar links */
+.side-nav a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    display: block;
+    transition: 0.3s;
+}
+
+/* Hover effect for sidebar links */
+.side-nav a:hover {
+    color: #f1f1f1;
+}
+.error{
+    color: red;
+    font-size: small;
+}

@@ -10,7 +10,7 @@ function Update()
 
     const {id} = useParams();
 
-    const { user, loading } = useSelector((state) => state.app);
+    const { user, loading } = useSelector((state) => state.userDetail);
 
     useEffect(() => {
         if (id && user.length > 0) {
