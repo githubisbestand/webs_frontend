@@ -22,8 +22,7 @@ function Read()
         dispatch(deleteUser(d.id));
         Navigate("/signup");
     }
-
-
+    
     return(
         <>
         <div style={{marginTop:"150px", width:"1250", marginLeft:"150px"}}>

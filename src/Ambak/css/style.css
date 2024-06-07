@@ -137,3 +137,9 @@ body{
     border: 1px solid gray;
     border-radius: 5px;
 }
+
+.daynamic_data_agentid{
+    border: 1px solid gray;
+    width: 70px;
+    text-align: center;
+}

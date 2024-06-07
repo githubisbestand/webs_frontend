@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import "../css/style.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,11 +6,11 @@ import Login from "../login/Login";
 import { useSelector } from "react-redux";
 
 function Header() {
-    const name = useSelector((state) => state.app.firstName);
+    const { name } = useSelector((state) => state.userDetail.firstName); // Update this line
 
     const [isModalOpen, setisModalOpen] = useState(false);
     const [isLogendIn, setisLogendIn] = useState(false);
-    const [isListOpen, setIsListOpen] = useState(false); // State to manage the visibility of the list
+    const [isListOpen, setIsListOpen] = useState(false); 
 
     const navigate = useNavigate();
 
@@ -101,21 +100,8 @@ function Header() {
                 <Login onLoginSuccess={handleLoginSuccess} />
             </Modal>    
 
+            {isListOpen && <sideNavBaar/>}
 
-        <div>
-            {isListOpen && (
-                            <div className="list-container" style={{ position: 'absolute', top: '100px', left: '70px', backgroundColor: 'white' }}>
-                                <ul className="navbar-nav mx-auto  mb-lg-0" style={{ gap: "25px", fontSize:"16px", textAlign:"start" }}>
-                                    <li className="nav-item">
-                                        <Link className="nav-link text-dark active" aria-current="page" to="#">manage Lead</Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link text-dark" to="#">Marketing</Link>
-                                    </li>
-                                </ul>
-                            </div>
-                        )}
-        </div>
     </>
 );
 }

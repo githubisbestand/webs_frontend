@@ -3,7 +3,6 @@ import axios from 'axios';
 import {useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../react-crud/slice/userDetails';
-import { useSelector } from 'react-redux';
 
 function Login({onLoginSuccess}) {
   const [email, setEmail] = useState('');
@@ -15,8 +14,6 @@ function Login({onLoginSuccess}) {
   
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-
 
 
   const handleEmailSubmit = async () => {
@@ -44,25 +41,29 @@ function Login({onLoginSuccess}) {
 
   const handlePasswordSubmit = async () => {
     try {
-      await axios.post('http://localhost:5000/save-password', { email, password });
+      const response = await axios.post('http://localhost:5000/save-password', { email, password });
+      const {firstName} = response.data; // Ensure firstName is a field in your response data
+      dispatch()
+      dispatch(setUser({ firstName }));
+      navigate("/HomeFile");
+      onLoginSuccess();
+      alert('Login successful');
+    } catch (error) {
+      console.error('Error saving password:', error);
+      alert('Error saving password');
+    }
+  };
+  
+  const handlePasswordLogin = async () => {
+
+    try {
+      const response = await axios.post('http://localhost:5000/login-password', {email, password});
+      const { name, id } = response.data;
+      console.log("--------",name, id);
+      dispatch(setUser({ name, id }));
       navigate("/HomeFile");
       onLoginSuccess();
       alert('login successfull');
-    } catch (error) {
-      console.error('Error saving password:', error);
-    }
-  };
-
-  const handlePasswordLogin = async () => {
-    try {
-      const response = await axios.post('http://localhost:5000/login-password', { email, password });
-      const firstName = response.data;
-      console.log('response from server', response.data);
-        dispatch(setUser({firstName}))
-        console.log('Dispatched firstName:', firstName); // Debug statement
-        navigate("/HomeFile")
-        onLoginSuccess();
-        alert('Login successful')  
     } catch (error) {
       console.error('Error logging in with password:', error);
       alert('you enter wrong password please enter right password')

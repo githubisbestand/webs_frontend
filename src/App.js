@@ -17,6 +17,8 @@ import Read from "./Component/Read";
 import Update from "./Component/Update";
 import HomeFile from "./Dashboard/HomeFile";
 import CreateLead from "./Ambak/Lead/CreateLead";
+import ShowLead from "./Ambak/Lead/ShowLead";
+
 function App() {
   const [showContent, setShowContent] = useState(false);
 
@@ -54,6 +56,7 @@ function App() {
               <Route path="/update/:id" element = {<Update />} />
               <Route path="/HomeFile" element = {<HomeFile />} />
               <Route path="/CreateLead" element = {<CreateLead />} />
+              <Route path="/ShowLead" element = {<ShowLead />}  />
             </Routes> 
             <Footer />
           </>
