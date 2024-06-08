@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
 function HomeFile() {
-  const { name } = useSelector((state) => state.userDetail.firstName); // Update this line
+  const { name } = useSelector((state) => state.userDetail.firstName); 
   const navigate = useNavigate();
 
   const handelNextLead = () => {
