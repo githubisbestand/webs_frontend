@@ -181,3 +181,7 @@ body{
     color: red;
     font-size: small;
 }
+.text_search_input_field{
+    border: 0px;
+    outline: none;
+}

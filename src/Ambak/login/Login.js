@@ -42,9 +42,7 @@ function Login({onLoginSuccess}) {
   const handlePasswordSubmit = async () => {
     try {
       const response = await axios.post('http://localhost:5000/save-password', { email, password });
-      const {firstName} = response.data; // Ensure firstName is a field in your response data
-      dispatch()
-      dispatch(setUser({ firstName }));
+      console.log("response", response);
       navigate("/HomeFile");
       onLoginSuccess();
       alert('Login successful');
@@ -58,9 +56,10 @@ function Login({onLoginSuccess}) {
 
     try {
       const response = await axios.post('http://localhost:5000/login-password', {email, password});
-      const { name, id } = response.data;
-      console.log("--------",name, id);
+      const { name, id, token } = response.data;
+      console.log("--------",name, id, token);
       dispatch(setUser({ name, id }));
+      localStorage.setItem('token', token);
       navigate("/HomeFile");
       onLoginSuccess();
       alert('login successfull');
