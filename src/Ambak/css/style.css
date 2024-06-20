@@ -143,26 +143,23 @@ body{
     width: 70px;
     text-align: center;
 }
-/* Sidebar initial state, hidden offscreen to the left */
 .side-nav {
     position: fixed;
     top: 0;
-    left: -250px; /* Adjust this width based on your sidebar width */
-    width: 250px; /* Adjust this width based on your sidebar width */
+    left: -250px; 
+    width: 250px; 
     height: 100%;
     background-color: #6a74fc;
     color: white;
     transition: left 0.3s ease-in-out;
     z-index: 1000;
-    padding-top: 60px; /* Adjust based on your navbar height */
+    padding-top: 60px; 
 }
 
-/* Sidebar visible state */
 .side-nav.open {
     left: 0;
 }
 
-/* Style for sidebar links */
 .side-nav a {
     padding: 10px 15px;
     text-decoration: none;
@@ -173,7 +170,7 @@ body{
     transition: 0.3s;
 }
 
-/* Hover effect for sidebar links */
+
 .side-nav a:hover {
     color: #f1f1f1;
 }
@@ -184,4 +181,22 @@ body{
 .text_search_input_field{
     border: 0px;
     outline: none;
+}
+.fa-pen-to-square{
+    color: #6a74fc;
+}
+.delet .fa-xmark{
+    color: red;
+    font-size: large;
+}
+.delet{
+    border: none;
+    background: none;
+}
+.fa-circle-minus{
+    font-size: large;
+    color: red;
+}
+.fa-pen-to-square{
+    font-size: large;
 }

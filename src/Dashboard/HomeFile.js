@@ -33,7 +33,7 @@ function HomeFile() {
         </div>
         <div className="d-flex justify-content-between mb-5" style={{ width: "450px", margin: "auto"}}>
           <div className="border p-5 " style={{ borderRadius: "10px", backgroundColor: "orange" , width:"190px" }} >
-            <p className="text-center"><i className="fa-solid fa-x"></i></p>
+            <p className="text-center"><i class="fa-solid fa-check"></i></p>
             <p className="text-center">Verified</p>
           </div>
           <div className="border p-5 " style={{ borderRadius: "10px", backgroundColor: "olive", width:"190px" }} >

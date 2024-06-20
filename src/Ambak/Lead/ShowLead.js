@@ -1,9 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function ShowLead() {
     const [lead, setLead] = useState([]); 
 
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get("http://localhost:5000/show-lead")
@@ -11,14 +14,22 @@ function ShowLead() {
             .catch(err => console.log(err));
     }, []);
 
-    const handleDelete = (id)=>{
+    const handleDelete = async (id)=>{
         const confirm = window.confirm('Are you sure want delete ths item');
+        const token = localStorage.getItem('token');
         if(confirm){
-            axios.delete('http://localhost:5000/deletelead/'+id)
-            .then(res => {
-            window.location.reload();
-            })
-            .catch(err => console.log("delete error", err));
+           try {
+                const response = axios.delete('http://localhost:5000/deletelead/'+id,{
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                setLead(prevLead => prevLead.filter(lead => lead.id !== id))
+                console.log('response====', response);
+                navigate('/ShowLead')
+           } catch (error) {
+                console.log(error);
+           }
         }
     }
     
@@ -41,8 +52,8 @@ function ShowLead() {
                             <td>{data.email}</td>
                             <td>{data.mobile}</td>
                             <td >
-                                <button className="btn btn-warning" style={{margin:"5px"}}>edit</button>
-                                <button className="btn btn-danger" onClick={()=>handleDelete(data.id)}>del</button>
+                                <button className="btn" style={{margin:"5px"}}><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button className="delet" onClick={()=>handleDelete(data.id)}><i class="fa-solid fa-circle-minus"></i></button>
                             </td>
                         </tr>
                    ))}

@@ -3,6 +3,9 @@ import axios from 'axios';
 import {useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../react-crud/slice/userDetails';
+import { toast } from 'react-toastify';
+
+
 
 function Login({onLoginSuccess}) {
   const [email, setEmail] = useState('');
@@ -42,13 +45,14 @@ function Login({onLoginSuccess}) {
   const handlePasswordSubmit = async () => {
     try {
       const response = await axios.post('http://localhost:5000/save-password', { email, password });
-      console.log("response", response);
+      const {name,id} = response.data;
+      dispatch(setUser({ name, id }));
       navigate("/HomeFile");
       onLoginSuccess();
-      alert('Login successful');
+      toast.success('Login successful');
     } catch (error) {
       console.error('Error saving password:', error);
-      alert('Error saving password');
+      toast.error('Error saving password');
     }
   };
   
@@ -57,15 +61,15 @@ function Login({onLoginSuccess}) {
     try {
       const response = await axios.post('http://localhost:5000/login-password', {email, password});
       const { name, id, token } = response.data;
-      console.log("--------",name, id, token);
       dispatch(setUser({ name, id }));
       localStorage.setItem('token', token);
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       navigate("/HomeFile");
       onLoginSuccess();
-      alert('login successfull');
+      toast.success('login successfull');
     } catch (error) {
       console.error('Error logging in with password:', error);
-      alert('you enter wrong password please enter right password')
+      toast.error('you enter wrong password')
     }
   };
 
