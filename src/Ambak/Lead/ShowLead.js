@@ -6,7 +6,7 @@ function ShowLead() {
     const [lead, setLead] = useState([]); 
 
 
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
 
     useEffect(() => {
         axios.get("http://localhost:5000/show-lead")
@@ -19,13 +19,12 @@ function ShowLead() {
         const token = localStorage.getItem('token');
         if(confirm){
            try {
-                const response = axios.delete('http://localhost:5000/deletelead/'+id,{
+                await axios.delete('http://localhost:5000/deletelead/'+id,{
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
                 });
                 setLead(prevLead => prevLead.filter(lead => lead.id !== id))
-                console.log('response====', response);
                 navigate('/ShowLead')
            } catch (error) {
                 console.log(error);
@@ -39,6 +38,7 @@ function ShowLead() {
             <table style={{marginTop: "100px", marginBottom:"50px"}}>
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Mobile</th>
@@ -48,6 +48,7 @@ function ShowLead() {
                 <tbody>
                    {lead.map((data, i) => (
                         <tr key={i}>
+                            <td>{data.id}</td>
                             <td>{data.name}</td>
                             <td>{data.email}</td>
                             <td>{data.mobile}</td>

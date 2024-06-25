@@ -55,7 +55,7 @@ function App() {
               <Route path="/create" element = {<Create />} />
               <Route path="/update/:id" element = {<Update />} />
               <Route path="/HomeFile" element = {<HomeFile />} />
-              <Route path="/CreateLead" element = {<CreateLead />} />
+              <Route path="/CreateLead" element = {<CreateLead/>}/>
               <Route path="/ShowLead" element = {<ShowLead />}  />
             </Routes> 
             <Footer />

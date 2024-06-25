@@ -30,50 +30,32 @@ const navigate = useNavigate();
 const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
-
-    if(name === 'name' && value.length < 2){
-      setErrors(prevErrors => ({...prevErrors, name : '* name is required'}))
-    } else if(name === 'email' && !/\S+@\S+\.\S+/.test(value)){
-        setErrors(prevErrors => ({...prevErrors, email : '* email is not vailed'}))
-    } else if(name === 'mobile' && !/^\d{10}$/.test(value)){
-        setErrors(prevErrors => ({...prevErrors, mobile : '* mobile number is required'}))
+    
+    if(name === 'name', value.length < 2){
+        setErrors(prevesError => ({...prevesError, name : 'name is required'}))
+    }else if(name === 'email' && !/\S+@\S+\.\S+/.test(value)){
+        setErrors(prevesError => ({...prevesError, email : "email is required"}))
+    }else if(name === 'mobile' && value.length !==10){
+        setErrors(prevesError =>({...prevesError, mobile : 'mobile number not vailed'}))
     }else{
-        setErrors(prevErrors => ({...prevErrors, [name] : ''}))
+        setErrors(prevesError => ({...prevesError, [name] : ''}))
     }
    
 };
-
-function validateForm(){
-    let ErrorMessage = {};
-
-    if(!values.name){
-        ErrorMessage.name = '* name is required';
-    }
-    if(!values.email){
-        ErrorMessage.email = '* email is required';
-    }
-    if(!values.mobile.trim()){
-        ErrorMessage.mobile = '*mobile number is required';
-    }
-    setErrors(ErrorMessage)
-    return Object.keys(ErrorMessage).length === 0;
-}
-
-
 const handleSubmitForm = async (e) => {
     e.preventDefault();
 
-    if(!validateForm()){
+    if (Object.values(Errors).some(error => error !== '')) {
         return;
-    }
+    } 
+       
     const token = localStorage.getItem('token');
     try {
-        const response = await axios.post("http://localhost:5000/create-lead", values, {
+         await axios.post("http://localhost:5000/create-lead", values, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         });
-        console.log('response', response);
         navigate("/HomeFile");
         toast.success('Lead created successfully');
     } catch (error) {
@@ -89,12 +71,12 @@ const handleSubmitForm = async (e) => {
                     <div className='form_control_one'>
                         <div>
                             <label className='mb-2'>Name</label> <br/>
-                            <input type='text' placeholder='TextName' name='name' value={values.name}   className='input_lead' onChange={handleChange} />
+                            <input type='text' required placeholder='TextName' name='name' value={values.name}   className='input_lead' onChange={handleChange} /><br/>
                             {Errors && <span className='error'>{Errors.name}</span>}
                         </div>
                         <div>
                             <label className='mb-2'>Email</label><br/>
-                            <input type='text' placeholder='Email'   name='email' value={values.email} className='input_lead' onChange={handleChange}/> <br/>
+                            <input type='text' required placeholder='Email'   name='email' value={values.email} className='input_lead' onChange={handleChange}/> <br/>
                             {Errors && <span className='error'>{Errors.email}</span>}
                         </div>
                     </div>
@@ -107,7 +89,7 @@ const handleSubmitForm = async (e) => {
                         </div>
                         <div>
                             <label className='mb-2'>Mobile</label><br/>
-                            <input type='text' placeholder='Mobile'   name='mobile' className='input_lead' value={values.mobile} onChange={handleChange} /><br/>
+                            <input type='number' required placeholder='Mobile'   name='mobile' className='input_lead' value={values.mobile} onChange={handleChange} /><br/>
                             {Errors && <span className='error'>{Errors.mobile}</span>}
                         </div>
                     </div>
